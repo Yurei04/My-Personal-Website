@@ -37,7 +37,7 @@ a {
     left: 0;
     top: 0;
     background-color: #0a0e1434;
-    z-index: 1000;
+    z-index: 800;
     color: #fff;
 }
 
@@ -119,6 +119,10 @@ a {
 
 /* HOME PAGE SECTION -----------------------*/
 
+.carosel-container .carosel-list .carosel-item {
+    position: relative;
+}
+
 .carosel-container {
     position: relative;
     height: 100vh;
@@ -126,17 +130,20 @@ a {
     overflow: hidden;
 }
 
-.carosel-item {
-    position:  relative;
+.carosel-container .carosel-list .carosel-item {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0 0 0 0;
 }
 
-.carosel-item img {
+.carosel-container .carosel-list .carosel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.carosel-list::after {
+.carosel-container .carosel-list .carosel-item::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -147,11 +154,11 @@ a {
     color: #fff
 }
 
-.carosel-content {
+.carosel-container .carosel-list .carosel-item .carosel-content {
     position: absolute;
     top: 10%;
     width: 1140px;
-    max-width: 100%;
+    max-width: 80%;
     left: 50%;
     transform: translateX(-50%);
     padding-right: 30%;
@@ -218,6 +225,199 @@ a {
     font-weight: 500;
 }
 
+.carosel-container .carosel-list .carosel-item:nth-child(1){
+    z-index: 1;
+  }
+  
+
+/*ARROWS ---------*/
+.arrows{
+    position: absolute;
+    top: 70%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    pointer-events: none;
+  }
+  .arrows button:hover{
+    background-color: #8be9fd;
+    color: #000;
+  }
+
+/* ANIMATION CAROSEL CSS ------ */
 
 
+.carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-name,
+.carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-title,
+.carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-topic,
+.carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-des
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
 
+@keyframes showContent {
+    to {
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.carosel-item:nth-child(1) .carosel-content .carosel-name {
+    animation-delay: 1.2s!important;
+}
+
+.carosel-item:nth-child(1) .carosel-content .carosel-title {
+    animation-delay: 1.4s!important;
+}
+
+.carosel-item:nth-child(1) .carosel-content .carosel-topic {
+    animation-delay: 1.6s!important;
+}
+
+.carosel-item:nth-child(1) .carosel-content .carosel-des {
+    animation-delay: 1.8s!important;
+}
+
+
+.carosel-container .next .carosel-list .carosel-item:nth-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 20px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.carosel-container .next .carosel-box .carosel-item:nth-last-child(1) {
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+.prev .carosel-list .carosel-item img {
+    z-index: 100;
+}
+
+@keyframes showThumbnail {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.carosel-container .next .carosel-box {
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+.carosel-container .time {
+    position: absolute;
+    z-index: 5000;
+    width: 0%;
+    height: 3px;
+    background-color: #ffffff;
+    left: 0;
+    top: 0;
+}
+
+
+.carosel-container .next .time, 
+.carosel-container .prev .time {
+    animation: runningTime 3s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    from {
+         width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) {
+    z-index: 2;
+}
+
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) img {
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes outFrame{
+    to { 
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.carosel-container .prev .carosel-box .box-item:nth-child(1) {
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+
+
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-name,
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-title,
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-topic,
+.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-des
+{
+    animation: contentOut 1.5s linear forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .carosel-content {
+        padding-right: 0;
+    }
+    .carosel-name {
+        font-size: 30px;
+    }
+}
