@@ -197,7 +197,7 @@ a {
     gap: 20px;
 }
 
-.box-item {
+.carosel-box .box-item {
     width: 150px;
     height: 220px;
     flex-shrink: 0;
@@ -206,14 +206,15 @@ a {
     border-radius: 20px;
 }
 
-.box-item img {
+.carosel-box .box-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
+    z-index: 1;
 }
 
-.box-content {
+.carosel-box .box-item .box-content {
     color: #fff;
     position: absolute;
     bottom: 10px;
@@ -224,40 +225,6 @@ a {
 .box-title {
     font-weight: 500;
 }
-
-.carosel-container .carosel-list .carosel-item:nth-child(1){
-    z-index: 1;
-  }
-  
-
-/*ARROWS ---------*/
-.arrows{
-    position: absolute;
-    top: 70%;
-    right: 52%;
-    z-index: 100;
-    width: 300px;
-    max-width: 30%;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  .arrows button{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #eee4;
-    border: none;
-    color: #fff;
-    font-family: monospace;
-    font-weight: bold;
-    transition: .5s;
-    pointer-events: none;
-  }
-  .arrows button:hover{
-    background-color: #8be9fd;
-    color: #000;
-  }
 
 /* ANIMATION CAROSEL CSS ------ */
 
@@ -281,50 +248,30 @@ a {
     }
 }
 
-.carosel-item:nth-child(1) .carosel-content .carosel-name {
+.carosel-container .carosel-item:nth-child(1) .carosel-content .carosel-name {
     animation-delay: 1.2s!important;
 }
 
-.carosel-item:nth-child(1) .carosel-content .carosel-title {
+.carosel-container .carosel-item:nth-child(1) .carosel-content .carosel-title {
     animation-delay: 1.4s!important;
 }
 
-.carosel-item:nth-child(1) .carosel-content .carosel-topic {
+.carosel-container .carosel-item:nth-child(1) .carosel-content .carosel-topic {
     animation-delay: 1.6s!important;
 }
 
-.carosel-item:nth-child(1) .carosel-content .carosel-des {
+.carosel-container .carosel-item:nth-child(1) .carosel-content .carosel-des {
     animation-delay: 1.8s!important;
 }
 
-
-.carosel-container .next .carosel-list .carosel-item:nth-child(1) img {
-    width: 150px;
-    height: 220px;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    border-radius: 20px;
-    animation: showImage .5s linear 1 forwards;
+.carosel-item:nth-child(1) {
+    z-index: 2;
 }
 
-@keyframes showImage {
-    to {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
-}
 
-.carosel-container .next .carosel-box .carosel-item:nth-last-child(1) {
+.carosel-container.next .carosel-box .box-item:nth-last-child(1) {
     overflow: hidden;
     animation: showThumbnail .5s linear 1 forwards;
-}
-
-.prev .carosel-list .carosel-item img {
-    z-index: 100;
 }
 
 @keyframes showThumbnail {
@@ -334,7 +281,7 @@ a {
     }
 }
 
-.carosel-container .next .carosel-box {
+.carosel-container.next .carosel-box {
     animation: effectNext .5s linear 1 forwards;
 }
 
@@ -346,7 +293,7 @@ a {
 
 .carosel-container .time {
     position: absolute;
-    z-index: 5000;
+    z-index: 1000;
     width: 0%;
     height: 3px;
     background-color: #ffffff;
@@ -355,8 +302,8 @@ a {
 }
 
 
-.carosel-container .next .time, 
-.carosel-container .prev .time {
+.carosel-container.next .time, 
+.carosel-container.prev .time {
     animation: runningTime 3s linear 1 forwards;
 }
 
@@ -369,49 +316,7 @@ a {
     }
 }
 
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) {
-    z-index: 2;
-}
 
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) img {
-    animation: outFrame 0.5s linear 1 forwards;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-@keyframes outFrame{
-    to { 
-        width: 150px;
-        height: 220px;
-        bottom: 50px;
-        left: 50%;
-        border-radius: 20px;
-    }
-}
-
-.carosel-container .prev .carosel-box .box-item:nth-child(1) {
-    overflow: hidden;
-    opacity: 0;
-    animation: showThumbnail .5s linear 1 forwards;
-}
-
-
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-name,
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-title,
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-topic,
-.carosel-container .prev .carosel-list .carosel-item:nth-child(2) .carosel-content .carosel-des
-{
-    animation: contentOut 1.5s linear forwards!important;
-}
-
-@keyframes contentOut{
-    to{
-        transform: translateY(-150px);
-        filter: blur(20px);
-        opacity: 0;
-    }
-}
 
 @media screen and (max-width: 678px) {
     .carosel-content {
