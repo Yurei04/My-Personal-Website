@@ -15,13 +15,11 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
         document.getElementById('watching').style.display = 'none';
         document.getElementById('manga').style.display = 'none';
         document.getElementById('art').style.display = 'none';
-        document.getElementById(selectedValue).style.display = 'flex';
 
         document.getElementById(selectedValue).style.display = 'flex';
         currentSlide = 0;
 
         updateCarousel(selectedValue); 
-        sectionValue = selectedValue;
     });
 });
 
@@ -45,7 +43,6 @@ function goToSlide(index) {
 function updateCarousel(sectionId) {
     let slides = document.querySelectorAll(`#${sectionId} .carousel-item`);
     let indicators = document.querySelectorAll(`#${sectionId} .indicator`);
-
     slides.forEach((slide, index) => {
         slide.classList.toggle('active', index === currentSlide);
     });
