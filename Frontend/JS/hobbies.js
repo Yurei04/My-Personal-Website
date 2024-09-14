@@ -54,12 +54,6 @@ function updateCarousel(sectionId) {
     });
 }
 
-setInterval(() => {
-    const visibleDiv = document.querySelector('div[style*="display: flex"]');
-    if (visibleDiv) {
-        nextSlide();
-    }
-}, 3000);
 function startAutoSlide() {
     setInterval(() => {
         const visibleDiv = document.querySelector('div[style*="display: flex"]');
