@@ -1,12 +1,190 @@
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
 html {
     overflow-x: hidden;
-    scroll-behavior: smooth;
 }
 
 body {
+    font-family:'Courier New', Courier, monospace;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
     height: 100vh;
     width: 100%;
+    background-color: #000000;
+}
+
+.hobbies-container {
+    color: #fff;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.monitor-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+.radio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: #1a1f29;
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 300px;
+    font-size: 14px;
+}
+
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    padding: .5rem 0;
+    color: #fff;
+    transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+    color: #212121;
+    background-color: #fff;
+    font-weight: 600;
+}
+
+.carousel {
+    border: 2px solid #fff;
+    border-radius: 12px;
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+    margin: 10px auto;
+  }
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.carousel-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 40%;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.carousel-indicators button {
+    width: 100px;
+    height: 2px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, .4);
+    cursor: pointer;
+    position: relative;
+    border: none;
+    padding: 0;
+    margin: 5px;
+}
+.carousel-indicators button.active::after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 0;
+    background-color: #fff;
+    animation: loading 3s ;
+}
+
+@keyframes loading{
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: 100px;
+    }
+}
+
+
+.gaming-section {
+    display: flex;
+}
+
+.coding-section {
+    display: none;
+}
+
+.watching-section {
+    display: none;
+}
+
+.manga-section {
+    display: none;
+}
+
+.art-section {
+    display: none;
 }
