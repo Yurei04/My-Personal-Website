@@ -125,6 +125,18 @@ body {
     height: 50px;
     font-size: 24px;
     cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: #212121;
+    margin: 10px;
+    color: #fff;
+}
+
+.carousel-controls button:hover {
+    border: 1px solid #1a1f29;
+    background-color: #fff;
+    margin: 10px;
+    color: #1a1f29;
 }
 
 .carousel-indicators {
@@ -187,4 +199,44 @@ body {
 
 .art-section {
     display: none;
+}
+
+
+  
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.15;
+    z-index: -1; 
+}
+  
+.slides.fade {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
+}
+
+.slides.fade.active {
+    opacity: 1;
+}
+
+@keyframes changeSlide {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    75% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@media (max-width: 768px) { 
+body {
+    overflow-x: hidden;
+    width: 100vw;
+}
 }

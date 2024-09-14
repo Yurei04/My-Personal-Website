@@ -2,7 +2,7 @@ let currentSlide = 0;
 let sectionValue = 'gaming'; 
 
 window.onload = function () {
-    updateCarousel(sectionValue); 
+    updateCarousel(sectionValue);
     startAutoSlide(); 
 };
 
@@ -26,8 +26,10 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
 
 function nextSlide() {
     let slides = document.querySelectorAll(`#${sectionValue} .carousel-item`);
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateCarousel(sectionValue);
+    if (slides.length > 0) {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateCarousel(sectionValue);
+    }
 }
 
 function prevSlide() {
@@ -54,9 +56,6 @@ function updateCarousel(sectionId) {
 
 function startAutoSlide() {
     setInterval(() => {
-        const visibleDiv = document.querySelector('div[style*="display: flex"]');
-        if (visibleDiv) {
-            nextSlide();  
-        }
+        nextSlide();
     }, 3000); 
 }
