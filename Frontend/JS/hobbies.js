@@ -20,6 +20,7 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
         currentSlide = 0;
 
         updateCarousel(selectedValue); 
+        sectionValue = selectedValue; 
     });
 });
 
