@@ -44,16 +44,13 @@ body {
 }
 
 .carosel-container .carosel-list .carosel-item::after {
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%);
+    background: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0) 50%);
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
 }
 
-.carosel-des {
-    color: #fff
-}
 
 .carosel-container .carosel-list .carosel-item .carosel-content {
     position: absolute;
@@ -64,26 +61,43 @@ body {
     transform: translateX(-50%);
     padding-right: 30%;
     box-sizing: border-box;
-    color: #fff;
+
 }
 
 .carosel-name {
     font-weight: bold;
     letter-spacing: 12px;
+    color: rgb(248, 255, 106);
+    text-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
-.carosel-title, .carosel-topic {
+
+.carosel-title {
     font-size: 5em;
     font-weight: bold;
     line-height: 1.4em;
+    white-space: nowrap; 
+    text-align: center; 
 }
+    
+
 
 .carosel-topic {
-    color: #fff;
+    font-size: 5em;
+    font-weight: bold;
+    line-height: 1.2em;
+    color: #f8ff6a;
+    text-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
+}
+
+.carosel-title {
+    color: #ffffd8;
+    text-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
 .carosel-des {
-    color: #fff;
+    color: #ffffd8;
+    text-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
 /* CAROSEL BOXES SECTION -------------- */
@@ -103,7 +117,8 @@ body {
     height: 220px;
     flex-shrink: 0;
     position: relative;
-    border: 2px solid #fff;
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
     border-radius: 20px;
 }
 
@@ -133,9 +148,9 @@ body {
     position: relative;
     padding: 1em 1.8em;
     outline: none;
-    border: 1px solid #303030;
+    border: 1px solid #1a1f29;
     background: #212121;
-    color: #ae00ff;
+    color: #db8eff;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 15px;
@@ -228,6 +243,36 @@ body {
 
 
 /* ANIMATION CAROSEL CSS ------ */
+.carosel-container .carosel-box .box-item:nth-child(1) {
+    transform: translateX(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContentBox 0.5s 1s linear 1 forwards, hideContentBox 0.5s 5s linear 1 backwards; 
+}
+
+
+@keyframes showContentBox {
+    to {
+        transform: translateX(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes hideContentBox {
+    from {
+        transform: translateX(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-50px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+
 .carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-name,
 .carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-title,
 .carosel-container .carosel-list .carosel-item:nth-child(1) .carosel-content .carosel-topic,
@@ -280,6 +325,10 @@ body {
     animation-delay: 1.8s, 6.8s !important;
 }
 
+.carosel-container .carosel-box .box-item:nth-child(1) {
+    animation-delay: 0s,  6.6s !important;
+}
+
 .carosel-item:nth-child(1) {
     z-index: 2;
 }
@@ -312,7 +361,7 @@ body {
     z-index: 1000;
     width: 0%;
     height: 3px;
-    background-color: #ffffff;
+    background-color: #fff127;
     left: 0;
     top: 0;
 }
@@ -386,6 +435,8 @@ body {
     border-radius: 16px;
     object-fit: cover;
     margin-bottom: 20px;
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
 .credentials {
@@ -404,7 +455,13 @@ body {
     z-index: 1;
     color: #fff;
     background-color: #1a1f29;
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 5px rgba(255, 246, 119, 0.5); 
+    transition: 0.5s ease;
+}
 
+.credentials-card:hover {
+    box-shadow: 0px 0px 15px rgba(255, 240, 34, 0.5); 
 }
 
 .card-title {
@@ -501,6 +558,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 0.5rem;
+    border: 1px solid #fff;
     background-color: #1a1f29;
     box-sizing: border-box;
     box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
@@ -596,6 +654,8 @@ section.skill-card {
     overflow: hidden;
     perspective: 1000px;
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #fcff9a;
+    box-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
 .skill-card h3 {
@@ -613,6 +673,7 @@ section.skill-card {
     box-shadow: 0 8px 16px #000000;
     background-color: #1a1f29;
     color: #ffffff;
+    box-shadow: 0px 0px 15px rgba(255, 246, 119, 0.5); 
 }
 
 .skill-content {

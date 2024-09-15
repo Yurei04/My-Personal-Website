@@ -70,3 +70,10 @@ document.querySelectorAll('input[name="radio"]').forEach((radioButton) => {
         }
     });
 });
+
+
+window.onclick = function(event) {
+    if (event.target.id === "proceed-btn") {
+        document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+    }
+};

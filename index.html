@@ -6,6 +6,7 @@
     <title>My Personal Website</title>
     <link rel="stylesheet" href="./Frontend/CSS/navbar.css">
     <link rel="stylesheet" href="./Frontend/CSS/index.css">
+    <link rel="stylesheet" href="./Frontend/CSS/options.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -40,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a onclick="openOptions(this)" class="nav-link">
+                        <a onclick="openAboutModal(event)" class="nav-link">
                             <i class="bi bi-arrow-up-right"></i>
                             <span> Options </span>
                         </a>
@@ -56,18 +57,18 @@
         <div class="carosel-container">
             <div class="carosel-list">
                 <div class="carosel-item">
-                    <img src="./Frontend/IMAGES/bkg2.png" alt="">
+                    <img src="./Frontend/IMAGES/bkg2.png" alt="bkg-img">
                     <div class="carosel-content">
                         <div class="carosel-name">Yuri Avila</div>
                         <div class="carosel-title">Personal Webpage</div>
-                        <div class="carosel-topic"></div>
+                        <div class="carosel-topic">Welcome</div>
                         <div class="carosel-des">
                             <p>
-
+                                Hello! My name is James Yuri R. Avila
                             </p>
                         </div>
                         <div class="carosel-button">
-                            <button>
+                            <button title="proceed" id="proceed-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -77,18 +78,18 @@
                     </div>
                 </div>
                 <div class="carosel-item">
-                    <img src="./Frontend/IMAGES/bkg3.png" alt="">
+                    <img src="./Frontend/IMAGES/bkg3.png" alt="bkg-img">
                     <div class="carosel-content">
                         <div class="carosel-name">Yuri Avila</div>
                         <div class="carosel-title">Personal Webpage</div>
-                        <div class="carosel-topic"></div>
+                        <div class="carosel-topic">Greetings</div>
                         <div class="carosel-des">
                             <p>
-
+                                I am a Developer Specializing in JS frameworks and Web Developement.
                             </p>
                         </div>
                         <div class="carosel-button">
-                            <button>
+                            <button title="proceed" id="proceed-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -98,18 +99,18 @@
                     </div>
                 </div>
                 <div class="carosel-item">
-                    <img src="./Frontend/IMAGES/bkg4.png" alt="">
+                    <img src="./Frontend/IMAGES/bkg4.png" alt="bkg-img">
                     <div class="carosel-content">
                         <div class="carosel-name">Yuri Avila</div>
                         <div class="carosel-title">Personal Webpage</div>
-                        <div class="carosel-topic"></div>
+                        <div class="carosel-topic">Interest</div>
                         <div class="carosel-des">
                             <p>
-
+                                I am interest highly in UI/UX design as well as Game Developement.
                             </p>
                         </div>
                         <div class="carosel-button">
-                            <button>
+                            <button title="proceed" id="proceed-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -123,26 +124,26 @@
 
         <div class="carosel-box">
             <div class="box-item">
-                <img src="./Frontend/IMAGES/bkg2.png" alt="">
+                <img src="./Frontend/IMAGES/bkg2.png" alt="box-img">
                 <div class="box-content">
                     <div class="box-title">
-        
+                        Greetings
                     </div>
                 </div>
             </div>
             <div class="box-item">
-                <img src="./Frontend/IMAGES/bkg3.png" alt="">
+                <img src="./Frontend/IMAGES/bkg3.png" alt="box-img">
                 <div class="box-content">
                     <div class="box-title">
-        
+                        About
                     </div>
                 </div>
             </div>
             <div class="box-item">
-                <img src="./Frontend/IMAGES/bkg4.png" alt="">
+                <img src="./Frontend/IMAGES/bkg4.png" alt="box-img">
                 <div class="box-content">
                     <div class="box-title">
-        
+                        Interest
                     </div>
                 </div>
             </div>
@@ -439,6 +440,27 @@
     </div>
 </section>
 
+<div id="options-modal" class="modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>Options</h2>
+        <span class="close" onclick="closeAboutModal()">&times;</span>
+      </div>
+      <div class="modal-content">
+        <button>
+            Standard
+        </button>
+        <button>
+            Color Scheme 1
+        </button>
+        <button>
+            Color Scheme 2
+        </button>
+        
+      </div>
+    </div>
+  </div>
+
 
 <div class="background-container">
     <div class="slides fade" style="background-image: url('./Frontend/IMAGES/bkg6.png');"></div>
@@ -454,5 +476,7 @@
 
     <script src="./Frontend/JS/index.js"></script>
     <script src="./Frontend/JS/bkgCarosel.js"></script>
+    <script src="./Frontend/JS/options.js"></script>
+
 </body>
 </html>
